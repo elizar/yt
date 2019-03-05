@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -40,7 +41,7 @@ func main() {
 		fmt.Fprint(w, "YT - Youtube video link grabber")
 	})
 
-	http.ListenAndServe(port, nil)
+	log.Fatal(http.ListenAndServe(port, nil))
 }
 
 func getYTInfo(link string) (d []byte, err error) {
