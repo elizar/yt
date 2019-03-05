@@ -55,24 +55,21 @@ func getYTInfo(link string) (d []byte, err error) {
 		return
 	}
 
-	data, err := ioutil.ReadAll(resp.Body)
-
-	kvSlice := strings.Split(string(data), "&")
-	kvMap := map[string]string{}
-	for _, kv := range kvSlice {
+	body, err := ioutil.ReadAll(resp.Body)
+	// key value pair chunks/slice
+	chunks := strings.Split(string(body), "&")
+	// info mapping
+	info := map[string]string{}
+	for _, kv := range chunks {
 		kva := strings.Split(kv, "=")
-		key := kva[0]
-		value, _ := url.QueryUnescape(kva[1])
-		kvMap[key] = value
+		info[kva[0]], _ = url.QueryUnescape(kva[1])
 	}
 
-	// slice for list of available videos
 	videos := []map[string]string{}
 	// comma-separated stream map
-	cssm := strings.Split(kvMap["url_encoded_fmt_stream_map"], ",")
-	// range over through the list of comma-separated fmt stream map
+	cssm := strings.Split(info["url_encoded_fmt_stream_map"], ",")
+	// range over through the list
 	for _, sm := range cssm {
-		// init video map
 		video := map[string]string{}
 		for _, um := range strings.Split(sm, "&") {
 			kv := strings.Split(um, "=")
