@@ -13,7 +13,7 @@ import (
 	"strings"
 )
 
-const YTURL = "http://www.youtube.com/get_video_info?video_id=%s&el=embedded&ps=default&eurl=&gl=US&hl=en"
+const YTURL = "http://www.youtube.com/get_video_info?video_id=%s&el=vevo&fmt=18&asv=2&hd=1"
 
 func main() {
 	port := ":" + os.Getenv("PORT")
