@@ -13,6 +13,7 @@ import (
 	"strings"
 )
 
+// YTURL ...
 const YTURL = "http://www.youtube.com/get_video_info?video_id=%s&el=embedded&ps=default&eurl=&gl=US&hl=en"
 
 func main() {
