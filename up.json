@@ -1,0 +1,13 @@
+{
+  "name": "yt",
+  "profile": "default",
+  "regions": [
+    "us-east-1"
+  ],
+  "stages": {
+    "staging": {
+      "domain": "yt.penzur.xyz",
+      "zone": false
+    }
+  }
+}
