@@ -8,10 +8,10 @@ youtube video link grabber
 
 ### basic example
 
-0. `$ brew install jq` (optional)
+1. `$ brew install jq` (optional)
 
 
-0. `curl https://yt.penzur.xyz/?url=<youtube video url> -s | jq`
+2. `curl https://yt.penzur.xyz/?url=<youtube video url> -s | jq`
 
 	should respond something like the following:
 
